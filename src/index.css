@@ -1,28 +1,20 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
-/**
- * The only stylesheet in the project. It exists to declare design tokens, not
- * to style components — everything visual lives in the markup as utilities.
- *
- * Tokens use light-dark(), so a utility like `bg-surface` resolves correctly in
- * both themes with no `dark:` variant anywhere. The theme switch happens once,
- * here, instead of being duplicated on every element that has a color.
- */
 @theme {
-  --color-canvas: light-dark(#ffffff, #131316);
-  --color-surface: light-dark(#f6f6f7, #1a1a1e);
-  --color-line: light-dark(#e3e3e6, #2a2a30);
-  --color-ink: light-dark(#1c1c1f, #ececef);
-  --color-muted: light-dark(#77777f, #8b8b95);
+    --color-canvas: light-dark(#ffffff, #131316);
+    --color-surface: light-dark(#f6f6f7, #1a1a1e);
+    --color-line: light-dark(#e3e3e6, #2a2a30);
+    --color-ink: light-dark(#1c1c1f, #ececef);
+    --color-muted: light-dark(#77777f, #8b8b95);
 }
 
 @layer base {
-  :root {
-    /* Lets light-dark() resolve, and themes native UI (scrollbars, controls). */
-    color-scheme: light dark;
-  }
+    :root {
+        /* Lets light-dark() resolve, and themes native UI (scrollbars, controls). */
+        color-scheme: light dark;
+    }
 
-  body {
-    @apply min-h-svh bg-canvas text-ink;
-  }
+    body {
+        @apply min-h-svh bg-canvas text-ink;
+    }
 }
