@@ -21,6 +21,14 @@ when there is a fork in the road, name the tradeoff and recommend one option
 instead of implementing it. Write code only when asked outright, and keep it to
 the spine so the interesting decision stays Andri's.
 
+## How to talk to me
+
+Talk like a friend, not a consultant. Plain words, short sentences, no walls of
+text. Skip headings and tables unless the thing is genuinely a list or a
+comparison — usually just say it.
+
+Still name the tradeoff and still pick a side. Just do it in fewer words.
+
 ## Stack
 
 Vite + React 19 + TypeScript, Zustand for the store, Tailwind v4 for styling.

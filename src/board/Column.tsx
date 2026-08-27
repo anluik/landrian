@@ -1,7 +1,5 @@
-import { useShallow } from 'zustand/react/shallow'
+import { useIssueIdsByStatus } from './hooks'
 import { IssueCard } from './IssueCard'
-import { selectIssueIdsByStatus } from './selectors'
-import { useBoardStore } from './store'
 import type { Status } from './types'
 
 interface ColumnProps {
@@ -10,7 +8,7 @@ interface ColumnProps {
 }
 
 export function Column({ status, title }: ColumnProps) {
-  const issueIds = useBoardStore(useShallow(selectIssueIdsByStatus(status)))
+  const issueIds = useIssueIdsByStatus(status)
 
   return (
     <section className="rounded-[10px] border border-line bg-surface p-3">
