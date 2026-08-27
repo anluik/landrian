@@ -11,7 +11,7 @@ export function Column({ status, title }: ColumnProps) {
   const issueIds = useIssueIdsByStatus(status)
 
   return (
-    <section className="rounded-[10px] border border-line bg-surface p-3">
+    <section className="flex min-h-0 flex-col rounded-xl border border-line bg-surface p-3">
       <header className="mb-3 flex items-center gap-2">
         <h2 className="text-[13px] font-semibold tracking-wider text-muted uppercase">
           {title}
@@ -21,7 +21,7 @@ export function Column({ status, title }: ColumnProps) {
         </span>
       </header>
 
-      <ul className="flex min-h-10 flex-col gap-2">
+      <ul className="flex min-h-10 flex-1 flex-col gap-2 overflow-y-auto overscroll-contain [scrollbar-gutter:stable]">
         {issueIds.map((id) => (
           <li key={id}>
             <IssueCard id={id} />
