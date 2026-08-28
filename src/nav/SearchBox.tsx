@@ -1,9 +1,5 @@
+import { Input } from "@/components/ui/input";
+
 export function SearchBox() {
-    return (
-        <input
-            type="search"
-            placeholder="Search issues…"
-            className="h-8 w-full rounded-md border border-line bg-surface px-3 text-sm placeholder:text-muted"
-        />
-    );
+    return <Input type="search" placeholder="Search issues…" />;
 }

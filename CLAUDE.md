@@ -40,12 +40,17 @@ Still name the tradeoff and still pick a side. Just do it in fewer words.
 
 ## Stack
 
-Vite + React 19 + TypeScript, Zustand for the store, Tailwind v4 for styling.
+Vite + React 19 + TypeScript, Zustand for the store, Tailwind v4 for styling,
+shadcn/ui (Base UI primitives, Nova preset) for components.
 
-Tailwind v4 has no config file — the theme lives in `@theme` in `src/index.css`,
-which is the only stylesheet in the project. Colors are defined with
-`light-dark()`, so there are no `dark:` variants anywhere. Data-driven colors
-(label chips) are inline styles, since no utility class can name a runtime value.
+Tailwind v4 has no config file — the theme lives in `src/index.css`, the only
+stylesheet in the project. Theming follows the shadcn convention: semantic
+variables (`--background`, `--primary`, …) defined in `:root` and `.dark`
+blocks, with class-based dark mode driven by `ThemeProvider` in `src/theme/`
+(light/dark/system, persisted to localStorage). shadcn components live in
+`src/components/ui/` and are owned, editable code. Data-driven colors (label
+chips, avatars) are inline styles, since no utility class can name a runtime
+value.
 
 ## Commands
 

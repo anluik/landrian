@@ -1,7 +1,10 @@
+import { MenuIcon } from "lucide-react";
 import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
 import { AvatarButton } from "./AvatarButton";
 import { CreateButton } from "./CreateButton";
 import { Logo } from "./Logo";
+import { ModeToggle } from "./ModeToggle";
 import { SearchBox } from "./SearchBox";
 import { SideMenu } from "./SideMenu";
 
@@ -17,27 +20,18 @@ export function Navbar() {
 
     return (
         <>
-            <header className="grid h-14 shrink-0 grid-cols-[1fr_auto_1fr] items-center gap-4 border-b border-line px-4">
+            <header className="grid h-14 shrink-0 grid-cols-[1fr_auto_1fr] items-center gap-4 border-b px-4">
                 <div className="flex items-center justify-self-start">
-                    <button
-                        type="button"
+                    <Button
+                        variant="ghost"
+                        size="icon"
                         aria-label="Open menu"
                         aria-haspopup="dialog"
                         onClick={() => setMenuOpen(true)}
-                        className="grid size-8 place-items-center rounded-md text-muted hover:bg-surface hover:text-ink md:hidden"
+                        className="md:hidden"
                     >
-                        <svg
-                            aria-hidden="true"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            className="size-5"
-                        >
-                            <path d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
+                        <MenuIcon className="size-5" />
+                    </Button>
                     <div className="hidden md:block">
                         <Logo />
                     </div>
@@ -53,7 +47,8 @@ export function Navbar() {
                     <CreateButton />
                 </div>
 
-                <div className="justify-self-end">
+                <div className="flex items-center gap-1 justify-self-end">
+                    <ModeToggle />
                     <AvatarButton />
                 </div>
             </header>
