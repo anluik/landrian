@@ -3,7 +3,7 @@ import { STATUSES } from "./types";
 
 export function Board() {
     return (
-        <div className="mx-auto grid h-full max-w-275 grid-cols-3 grid-rows-1 gap-4 p-6">
+        <div className="mx-auto grid h-full max-w-275 grid-cols-3 grid-rows-1 gap-8 p-6">
             {STATUSES.map(status => (
                 <Column
                     key={status.id}

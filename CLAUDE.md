@@ -52,6 +52,25 @@ blocks, with class-based dark mode driven by `ThemeProvider` in `src/theme/`
 chips, avatars) are inline styles, since no utility class can name a runtime
 value.
 
+## Design language
+
+The app has a "technical ticket" look. When adding a shadcn component
+(`pnpm dlx shadcn@latest add …`), it arrives stock — apply the house style as
+part of installing it:
+
+- Microcopy (section headers, counts, tags, badges) is `font-mono` uppercase
+  with wide tracking; titles and body text stay Geist sans.
+- Inputs are filled (`bg-muted` + hairline `border-input`), opening to
+  `bg-background` with a violet border and 2px ring on focus.
+- Primary actions glow: inset top highlight plus a violet halo shadow.
+- Overlays (menus, sheets) are translucent with `backdrop-blur` behind a
+  `supports-backdrop-filter:` guard.
+- Focus rings are 2px at 40% opacity, not shadcn's 3px/50%.
+- Status colors: todo = muted gray, in_progress = amber-500, done =
+  emerald-500 (dots in column headers, left rails on issue cards).
+- The dotted canvas + violet glow lives on `body` in `src/index.css`; surfaces
+  that should float on it use solid token backgrounds.
+
 ## Commands
 
 ```

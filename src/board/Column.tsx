@@ -1,7 +1,12 @@
-import { Badge } from "@/components/ui/badge";
 import { useIssueIdsByStatus } from "./hooks";
 import { IssueCard } from "./IssueCard";
 import type { Status } from "./types";
+
+const statusDot: Record<Status, string> = {
+    todo: "bg-muted-foreground/60",
+    in_progress: "bg-amber-500",
+    done: "bg-emerald-500"
+};
 
 interface ColumnProps {
     status: Status;
@@ -12,17 +17,20 @@ export function Column({ status, title }: ColumnProps) {
     const issueIds = useIssueIdsByStatus(status);
 
     return (
-        <section className="flex min-h-0 flex-col rounded-xl border bg-muted p-3">
-            <header className="mb-3 flex items-center gap-2">
-                <h2 className="text-[13px] font-semibold tracking-wider text-muted-foreground uppercase">
+        <section className="flex min-h-0 flex-col">
+            <header className="mb-3 flex items-center gap-2 border-b border-dashed pb-2.5">
+                <span
+                    className={`size-1.5 rounded-full ${statusDot[status]}`}
+                />
+                <h2 className="font-mono text-xs font-semibold tracking-widest text-muted-foreground uppercase">
                     {title}
                 </h2>
-                <Badge variant="outline" className="bg-background px-1.75">
+                <span className="ml-auto font-mono text-xs text-muted-foreground">
                     {issueIds.length}
-                </Badge>
+                </span>
             </header>
 
-            <ul className="flex min-h-10 flex-1 flex-col gap-2 overflow-y-auto overscroll-contain [scrollbar-gutter:stable]">
+            <ul className="flex min-h-10 flex-1 flex-col gap-3 overflow-y-auto overscroll-contain [scrollbar-gutter:stable]">
                 {issueIds.map(id => (
                     <li key={id}>
                         <IssueCard id={id} />

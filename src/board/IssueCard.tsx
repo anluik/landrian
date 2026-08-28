@@ -3,7 +3,13 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { useIssue, useLabels, useUser } from "./hooks";
-import type { IssueId } from "./types";
+import type { IssueId, Status } from "./types";
+
+const statusRail: Record<Status, string> = {
+    todo: "border-l-muted-foreground/40",
+    in_progress: "border-l-amber-500",
+    done: "border-l-emerald-500"
+};
 
 export function IssueCard({ id }: { id: IssueId }) {
     const issue = useIssue(id);
@@ -11,7 +17,10 @@ export function IssueCard({ id }: { id: IssueId }) {
     const labels = useLabels(issue.labelIds);
 
     return (
-        <Card size="sm" className="gap-2.5 rounded-lg py-2.5">
+        <Card
+            size="sm"
+            className={`gap-2.5 rounded-lg border border-l-2 py-2.5 shadow-none ring-0 transition-transform ${statusRail[issue.status]}`}
+        >
             <CardContent className="text-sm/relaxed">{issue.title}</CardContent>
 
             <CardContent className="flex items-center gap-1.5">
@@ -19,7 +28,7 @@ export function IssueCard({ id }: { id: IssueId }) {
                     <Badge
                         key={label.id}
                         variant="outline"
-                        className="px-1.75 text-[11px]"
+                        className="px-1.75 font-mono text-[10px] tracking-wide uppercase"
                         style={
                             {
                                 "--chip": label.color,
