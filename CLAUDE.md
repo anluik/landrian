@@ -29,6 +29,15 @@ comparison — usually just say it.
 
 Still name the tradeoff and still pick a side. Just do it in fewer words.
 
+## Component guidelines
+
+- Keep components small and single-purpose (SRP).
+- Going beyond what was asked is allowed, but each addition must be deliberate
+  and called out in chat.
+- Prefer Tailwind scale/named utilities (`gap-3.5`, `size-1.5`, `truncate`)
+  over arbitrary values (`gap-[14px]`, `h-[6px] w-[6px]`) whenever an
+  equivalent exists, and write classes in their canonical v4 form.
+
 ## Stack
 
 Vite + React 19 + TypeScript, Zustand for the store, Tailwind v4 for styling.

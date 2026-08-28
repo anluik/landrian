@@ -1,11 +1,55 @@
 @import "tailwindcss";
 
 @theme {
-    --color-canvas: light-dark(#ffffff, #131316);
-    --color-surface: light-dark(#f6f6f7, #1a1a1e);
-    --color-line: light-dark(#e3e3e6, #2a2a30);
-    --color-ink: light-dark(#1c1c1f, #ececef);
-    --color-muted: light-dark(#77777f, #8b8b95);
+    --color-canvas: light-dark(#ffffff, #131118);
+    --color-surface: light-dark(#f6f6f7, #1b1822);
+    --color-line: light-dark(#e3e3e6, #2c2636);
+    --color-ink: light-dark(#1c1c1f, #edebf2);
+    --color-muted: light-dark(#77777f, #8f8a9c);
+    --color-accent: light-dark(#6e56cf, #7c6ae0);
+}
+
+@layer components {
+    .side-menu {
+        translate: -100% 0;
+        transition:
+            translate 0.3s ease-in-out,
+            display 0.3s ease-in-out allow-discrete,
+            overlay 0.3s ease-in-out allow-discrete;
+    }
+
+    .side-menu::backdrop {
+        background-color: transparent;
+        transition:
+            background-color 0.3s ease-in-out,
+            display 0.3s ease-in-out allow-discrete,
+            overlay 0.3s ease-in-out allow-discrete;
+    }
+
+    .side-menu[open] {
+        translate: 0 0;
+    }
+
+    .side-menu[open]::backdrop {
+        background-color: rgb(0 0 0 / 40%);
+    }
+
+    @starting-style {
+        .side-menu[open] {
+            translate: -100% 0;
+        }
+
+        .side-menu[open]::backdrop {
+            background-color: transparent;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .side-menu,
+        .side-menu::backdrop {
+            transition: none;
+        }
+    }
 }
 
 @layer base {
