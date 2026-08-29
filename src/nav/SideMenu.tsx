@@ -19,7 +19,7 @@ export function SideMenu({ open, onClose }: SideMenuProps) {
                 <SheetTitle className="sr-only">Menu</SheetTitle>
                 <div className="flex flex-col gap-3 p-4 pt-12">
                     <SearchBox />
-                    <CreateButton />
+                    <CreateButton onOpen={onClose} />
                 </div>
             </SheetContent>
         </Sheet>
