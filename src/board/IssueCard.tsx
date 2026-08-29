@@ -23,6 +23,14 @@ export function IssueCard({ id }: { id: IssueId }) {
         >
             <CardContent className="text-sm/relaxed">{issue.title}</CardContent>
 
+            {issue.description && (
+                <CardContent>
+                    <div className="rounded-md border border-input bg-muted px-2 py-1.5 text-xs/relaxed text-muted-foreground">
+                        <p className="line-clamp-2">{issue.description}</p>
+                    </div>
+                </CardContent>
+            )}
+
             <CardContent className="flex items-center gap-1.5">
                 {labels.map(label => (
                     <Badge

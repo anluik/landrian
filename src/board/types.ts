@@ -13,6 +13,7 @@ export const STATUSES: readonly { id: Status; title: string }[] = [
 export interface Issue {
     id: IssueId;
     title: string;
+    description: string;
     status: Status;
     assigneeId: UserId | null;
     labelIds: LabelId[];

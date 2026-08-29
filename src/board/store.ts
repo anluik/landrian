@@ -12,6 +12,9 @@ const seed: BoardState = {
         i1: {
             id: "i1",
             title: "Login redirects to a blank page",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. " +
+                "b aspernatur beatae consequatur illum laboriosam voluptate.",
             status: "todo",
             assigneeId: "u1",
             labelIds: ["l1"]
@@ -19,6 +22,9 @@ const seed: BoardState = {
         i2: {
             id: "i2",
             title: "Add dark mode to the settings panel",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. " +
+                "Ab aspernatur beatae consequatur illum laboriosam voluptate.",
             status: "in_progress",
             assigneeId: "u1",
             labelIds: ["l2", "l3"]
