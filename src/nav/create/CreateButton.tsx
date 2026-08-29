@@ -7,15 +7,15 @@ import {
 } from "react";
 import { AnimatePresence, MotionConfig, motion } from "motion/react";
 import { ChevronLeftIcon } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button.tsx";
 import {
     Dialog,
     DialogContent,
     DialogTitle,
     DialogTrigger
-} from "@/components/ui/dialog";
-import { CreateMenu } from "./CreateMenu";
-import { NewIssueForm } from "./NewIssueForm";
+} from "@/components/ui/dialog.tsx";
+import { CreateMenu } from "./CreateMenu.tsx";
+import { NewIssueForm } from "./NewIssueForm.tsx";
 
 export type CreateViewId = "menu" | "newIssue";
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import type { CreateViewProps } from "./CreateButton";
+import { Button } from "@/components/ui/button.tsx";
+import { Input } from "@/components/ui/input.tsx";
+import type { CreateViewProps } from "./CreateButton.tsx";
 
 export function NewIssueForm({ onClose }: CreateViewProps) {
     const [title, setTitle] = useState("");

@@ -1,5 +1,5 @@
 import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
-import { CreateButton } from "./CreateButton";
+import { CreateButton } from "./create/CreateButton.tsx";
 import { SearchBox } from "./SearchBox";
 
 interface SideMenuProps {

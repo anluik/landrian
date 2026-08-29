@@ -2,7 +2,7 @@ import { MenuIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { AvatarButton } from "./AvatarButton";
-import { CreateButton } from "./CreateButton";
+import { CreateButton } from "./create/CreateButton.tsx";
 import { Logo } from "./Logo";
 import { ModeToggle } from "./ModeToggle";
 import { SearchBox } from "./SearchBox";
