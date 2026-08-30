@@ -2,7 +2,7 @@ import { MenuIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { AvatarButton } from "./AvatarButton";
-import { CreateButton } from "./create/CreateButton.tsx";
+import { CreateDialog } from "./create/CreateDialog.tsx";
 import { Logo } from "./Logo";
 import { ModeToggle } from "./ModeToggle";
 import { SearchBox } from "./SearchBox";
@@ -10,6 +10,7 @@ import { SideMenu } from "./SideMenu";
 
 export function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [createOpen, setCreateOpen] = useState(false);
 
     useEffect(() => {
         const breakpoint = window.matchMedia("(min-width: 48rem)");
@@ -44,7 +45,12 @@ export function Navbar() {
                     <div className="w-72">
                         <SearchBox />
                     </div>
-                    <CreateButton />
+                    <Button
+                        aria-haspopup="dialog"
+                        onClick={() => setCreateOpen(true)}
+                    >
+                        Create
+                    </Button>
                 </div>
 
                 <div className="flex items-center gap-1 justify-self-end">
@@ -53,7 +59,15 @@ export function Navbar() {
                 </div>
             </header>
 
-            <SideMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
+            <SideMenu
+                open={menuOpen}
+                onClose={() => setMenuOpen(false)}
+                onCreate={() => {
+                    setMenuOpen(false);
+                    setCreateOpen(true);
+                }}
+            />
+            <CreateDialog open={createOpen} onOpenChange={setCreateOpen} />
         </>
     );
 }

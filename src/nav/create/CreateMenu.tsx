@@ -1,6 +1,6 @@
 import { SquarePenIcon, type LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button.tsx";
-import type { CreateViewId, CreateViewProps } from "./CreateButton.tsx";
+import type { CreateViewId, CreateViewProps } from "./CreateDialog.tsx";
 
 interface CreateOption {
     icon: LucideIcon;
