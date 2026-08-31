@@ -11,7 +11,12 @@ const statusRail: Record<Status, string> = {
     done: "border-l-emerald-500"
 };
 
-export function IssueCard({ id }: { id: IssueId }) {
+interface IssueCardProps {
+    id: IssueId;
+    status: Status;
+}
+
+export function IssueCard({ id, status }: IssueCardProps) {
     const issue = useIssue(id);
     const assignee = useUser(issue.assigneeId);
     const labels = useLabels(issue.labelIds);
@@ -19,7 +24,7 @@ export function IssueCard({ id }: { id: IssueId }) {
     return (
         <Card
             size="sm"
-            className={`gap-2.5 rounded-lg border border-l-2 py-2.5 shadow-none ring-0 transition-transform ${statusRail[issue.status]}`}
+            className={`gap-2.5 rounded-lg border border-l-2 py-2.5 shadow-none ring-0 transition-transform ${statusRail[status]}`}
         >
             <CardContent className="text-sm/relaxed">{issue.title}</CardContent>
 

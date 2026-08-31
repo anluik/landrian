@@ -33,7 +33,7 @@ export function Column({ status, title }: ColumnProps) {
             <ul className="flex min-h-10 flex-1 flex-col gap-3 overflow-y-auto overscroll-contain [scrollbar-gutter:stable]">
                 {issueIds.map(id => (
                     <li key={id}>
-                        <IssueCard id={id} />
+                        <IssueCard id={id} status={status} />
                     </li>
                 ))}
             </ul>

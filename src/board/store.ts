@@ -1,10 +1,19 @@
 import { create } from "zustand";
-import type { Issue, IssueId, Label, LabelId, User, UserId } from "./types";
+import type {
+    Issue,
+    IssueId,
+    Label,
+    LabelId,
+    Status,
+    User,
+    UserId
+} from "./types";
 
 export interface BoardState {
     issues: Record<IssueId, Issue>;
     users: Record<UserId, User>;
     labels: Record<LabelId, Label>;
+    columnOrder: Record<Status, IssueId[]>
 }
 
 const seed: BoardState = {
@@ -15,7 +24,6 @@ const seed: BoardState = {
             description:
                 "Lorem ipsum dolor sit amet, consectetur adipisicing elit. " +
                 "b aspernatur beatae consequatur illum laboriosam voluptate.",
-            status: "todo",
             assigneeId: "u1",
             labelIds: ["l1"]
         },
@@ -25,7 +33,6 @@ const seed: BoardState = {
             description:
                 "Lorem ipsum dolor sit amet, consectetur adipisicing elit. " +
                 "Ab aspernatur beatae consequatur illum laboriosam voluptate.",
-            status: "in_progress",
             assigneeId: "u1",
             labelIds: ["l2", "l3"]
         }
@@ -38,10 +45,12 @@ const seed: BoardState = {
         l1: { id: "l1", name: "bug", color: "#ef4444" },
         l2: { id: "l2", name: "feature", color: "#3b82f6" },
         l3: { id: "l3", name: "design", color: "#f59e0b" }
+    },
+    columnOrder: {
+        todo: ["i1"],
+        in_progress: ["i2"],
+        done: []
     }
 };
 
 export const useBoardStore = create<BoardState>()(() => seed);
-
-// Step 2 lives here: named actions (createIssue, moveIssue, assignIssue) are
-// the only things allowed to write to the store. Nothing else calls setState.

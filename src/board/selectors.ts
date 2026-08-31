@@ -4,9 +4,7 @@ import type { IssueId, LabelId, Status, UserId } from "./types";
 export const selectIssueIdsByStatus =
     (status: Status) =>
     (state: BoardState): IssueId[] =>
-        Object.values(state.issues)
-            .filter(issue => issue.status === status)
-            .map(issue => issue.id);
+        state.columnOrder[status];
 
 export const selectIssue = (id: IssueId) => (state: BoardState) =>
     state.issues[id];
