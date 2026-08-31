@@ -1,5 +1,5 @@
+import { DraggableIssueCard } from "./DraggableIssueCard";
 import { useIssueIdsByStatus } from "./hooks";
-import { IssueCard } from "./IssueCard";
 import type { Status } from "./types";
 
 const statusDot: Record<Status, string> = {
@@ -30,11 +30,9 @@ export function Column({ status, title }: ColumnProps) {
                 </span>
             </header>
 
-            <ul className="flex min-h-10 flex-1 flex-col gap-3 overflow-y-auto overscroll-contain [scrollbar-gutter:stable]">
+            <ul className="flex min-h-10 flex-1 flex-col gap-3 overflow-y-auto overscroll-contain scrollbar-gutter-stable">
                 {issueIds.map(id => (
-                    <li key={id}>
-                        <IssueCard id={id} status={status} />
-                    </li>
+                    <DraggableIssueCard key={id} id={id} status={status} />
                 ))}
             </ul>
         </section>
