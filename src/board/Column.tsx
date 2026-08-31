@@ -1,3 +1,4 @@
+import { useDroppable } from "@dnd-kit/react";
 import { DraggableIssueCard } from "./DraggableIssueCard";
 import { useIssueIdsByStatus } from "./hooks";
 import type { Status } from "./types";
@@ -15,9 +16,13 @@ interface ColumnProps {
 
 export function Column({ status, title }: ColumnProps) {
     const issueIds = useIssueIdsByStatus(status);
+    const { ref, isDropTarget } = useDroppable({ id: status });
 
     return (
-        <section className="flex min-h-0 flex-col">
+        <section
+            ref={ref}
+            className={`flex min-h-0 flex-col rounded-lg transition-colors ${isDropTarget ? "bg-primary/5" : ""}`}
+        >
             <header className="mb-3 flex items-center gap-2 border-b border-dashed pb-2.5">
                 <span
                     className={`size-1.5 rounded-full ${statusDot[status]}`}
