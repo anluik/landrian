@@ -35,6 +35,15 @@ const seed: BoardState = {
                 "Ab aspernatur beatae consequatur illum laboriosam voluptate.",
             assigneeId: "u1",
             labelIds: ["l2", "l3"]
+        },
+        i3: {
+            id: "i3",
+            title: "Page crashes when submitting form",
+            description:
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. " +
+                "b aspernatur beatae consequatur illum laboriosam voluptate.",
+            assigneeId: "u1",
+            labelIds: []
         }
     },
     users: {
@@ -47,7 +56,7 @@ const seed: BoardState = {
         l3: { id: "l3", name: "design", color: "#f59e0b" }
     },
     columnOrder: {
-        todo: ["i1"],
+        todo: ["i1", "i3"],
         in_progress: ["i2"],
         done: []
     }

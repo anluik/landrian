@@ -1,5 +1,6 @@
+import { CollisionPriority } from "@dnd-kit/abstract";
 import { useDroppable } from "@dnd-kit/react";
-import { DraggableIssueCard } from "./DraggableIssueCard";
+import { SortableIssueCard } from "./SortableIssueCard";
 import { useIssueIdsByStatus } from "./hooks";
 import type { Status } from "./types";
 
@@ -16,7 +17,12 @@ interface ColumnProps {
 
 export function Column({ status, title }: ColumnProps) {
     const issueIds = useIssueIdsByStatus(status);
-    const { ref, isDropTarget } = useDroppable({ id: status });
+    const { ref, isDropTarget } = useDroppable({
+        id: status,
+        type: "column",
+        accept: "issue",
+        collisionPriority: CollisionPriority.Low,
+    });
 
     return (
         <section
@@ -36,8 +42,13 @@ export function Column({ status, title }: ColumnProps) {
             </header>
 
             <ul className="flex min-h-10 flex-1 flex-col gap-3 overflow-y-auto overscroll-contain scrollbar-gutter-stable">
-                {issueIds.map(id => (
-                    <DraggableIssueCard key={id} id={id} status={status} />
+                {issueIds.map((id, index) => (
+                    <SortableIssueCard
+                        key={id}
+                        id={id}
+                        status={status}
+                        index={index}
+                    />
                 ))}
             </ul>
         </section>
