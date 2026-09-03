@@ -2,7 +2,6 @@ import { DragDropProvider } from "@dnd-kit/react";
 import { isSortable } from "@dnd-kit/react/sortable";
 import { moveIssue } from "./actions";
 import { Column } from "./Column";
-import { useBoardStore } from "./store";
 import { STATUSES, type IssueId, type Status } from "./types";
 import { useRef } from "react";
 
@@ -35,13 +34,11 @@ export function Board() {
 
                 const issueId = source.id as IssueId;
                 if (target.type === "column") {
+                    // outside droppable, but in column - append to the end
                     const toStatus = target.id as Status;
-                    moveIssue(
-                        issueId,
-                        toStatus,
-                        useBoardStore.getState().columnOrder[toStatus].length
-                    );
+                    moveIssue(issueId, toStatus);
                 } else if (isSortable(source)) {
+                    // inside droppable, place at index
                     moveIssue(issueId, source.group as Status, source.index);
                 }
             }}
