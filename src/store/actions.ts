@@ -1,7 +1,7 @@
 import { generateKeyBetween } from "fractional-indexing";
 import { selectIssueIdsByStatus } from "./selectors.ts";
 import { useBoardStore } from "./store.ts";
-import type { Issue, IssueId, Status } from "@/types/Issue.ts";
+import type { Issue, IssueId, Status } from "@/types/issue.ts";
 import { addIssue, updateIssue } from "@/database/issues.repo.ts";
 
 export type NewIssue = {

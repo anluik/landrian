@@ -1,4 +1,4 @@
-import { type IssueId, type Status, STATUSES } from "@/types/Issue.ts";
+import { type IssueId, type Status, STATUSES } from "@/types/issue.ts";
 import { DragDropProvider } from "@dnd-kit/react";
 import { isSortable } from "@dnd-kit/react/sortable";
 import { moveIssue } from "@/store/actions.ts";

@@ -1,7 +1,7 @@
 import { create } from "zustand";
-import type { Issue, IssueId } from "@/types/Issue.ts";
-import type { User, UserId } from "@/types/User.ts";
-import type { Label, LabelId } from "@/types/Label.ts";
+import type { Issue, IssueId } from "@/types/issue.ts";
+import type { User, UserId } from "@/types/user.ts";
+import type { Label, LabelId } from "@/types/label.ts";
 import { getIssues } from "@/database/issues.repo.ts";
 
 export type InitStatus = "loading" | "ready" | "error";

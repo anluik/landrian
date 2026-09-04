@@ -7,9 +7,9 @@ import {
     selectUser
 } from "./selectors.ts";
 import { useBoardStore } from "./store.ts";
-import type { IssueId, Status } from "@/types/Issue.ts";
-import type { LabelId } from "@/types/Label.ts";
-import type { UserId } from "@/types/User.ts";
+import type { IssueId, Status } from "@/types/issue.ts";
+import type { LabelId } from "@/types/label.ts";
+import type { UserId } from "@/types/user.ts";
 
 export const useInitStatus = () => useBoardStore(selectInitStatus);
 

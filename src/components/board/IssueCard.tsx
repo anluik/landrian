@@ -3,7 +3,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar.tsx";
 import { Badge } from "@/components/ui/badge.tsx";
 import { Card, CardContent } from "@/components/ui/card.tsx";
 import { useIssue, useLabels, useUser } from "@/store/hooks.ts";
-import type { IssueId, Status } from "@/types/Issue.ts";
+import type { IssueId, Status } from "@/types/issue.ts";
 
 const statusRail: Record<Status, string> = {
     todo: "border-l-muted-foreground/40",

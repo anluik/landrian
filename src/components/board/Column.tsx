@@ -2,7 +2,7 @@ import { CollisionPriority } from "@dnd-kit/abstract";
 import { useDroppable } from "@dnd-kit/react";
 import { SortableIssueCard } from "./SortableIssueCard.tsx";
 import { useIssueIdsByStatus } from "@/store/hooks.ts";
-import type { Status } from "@/types/Issue.ts";
+import type { Status } from "@/types/issue.ts";
 
 const statusDot: Record<Status, string> = {
     todo: "bg-muted-foreground/60",

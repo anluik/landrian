@@ -1,4 +1,4 @@
-import type { Issue, IssueId } from "@/types/Issue.ts";
+import type { Issue, IssueId } from "@/types/issue.ts";
 import { db } from "@/database/db.ts";
 
 const { issues } = db;

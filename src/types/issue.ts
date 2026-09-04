@@ -1,5 +1,5 @@
-import type { UserId } from "@/types/User.ts";
-import type { LabelId } from "@/types/Label.ts";
+import type { UserId } from "@/types/user.ts";
+import type { LabelId } from "@/types/label.ts";
 
 export type IssueId = string;
 

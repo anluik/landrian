@@ -1,5 +1,5 @@
 import { Dexie, type EntityTable } from "dexie";
-import type { Issue } from "@/types/Issue.ts";
+import type { Issue } from "@/types/issue.ts";
 
 export const db = new Dexie("BoardDB") as Dexie & {
     issues: EntityTable<Issue, "id">;
