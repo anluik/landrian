@@ -2,7 +2,7 @@ import { generateKeyBetween } from "fractional-indexing";
 import { selectIssueIdsByStatus } from "./selectors.ts";
 import { useBoardStore } from "./store.ts";
 import type { Issue, IssueId, Status } from "@/types/Issue.ts";
-import { addIssue } from "@/database/issues.repo.ts";
+import { addIssue, updateIssue } from "@/database/issues.repo.ts";
 
 export type NewIssue = {
     title: string;
@@ -48,17 +48,20 @@ export const moveIssue = (
         const beforeId = siblingIds[index - 1];
         const afterId = siblingIds[index];
 
+        const updatedIssue = {
+            ...issue,
+            status: toStatus,
+            orderKey: generateKeyBetween(
+                beforeId ? state.issues[beforeId].orderKey : null,
+                afterId ? state.issues[afterId].orderKey : null
+            )
+        };
+        void updateIssue(issueId, updatedIssue);
+
         return {
             issues: {
                 ...state.issues,
-                [issueId]: {
-                    ...issue,
-                    status: toStatus,
-                    orderKey: generateKeyBetween(
-                        beforeId ? state.issues[beforeId].orderKey : null,
-                        afterId ? state.issues[afterId].orderKey : null
-                    )
-                }
+                [issueId]: updatedIssue
             }
         };
     });
