@@ -2,6 +2,7 @@ import { generateKeyBetween } from "fractional-indexing";
 import { selectIssueIdsByStatus } from "./selectors.ts";
 import { useBoardStore } from "./store.ts";
 import type { Issue, IssueId, Status } from "@/types/Issue.ts";
+import { addIssue } from "@/database/issues.repo.ts";
 
 export type NewIssue = {
     title: string;
@@ -26,6 +27,7 @@ export const createIssue = (newIssueData: NewIssue) => {
                 null
             )
         };
+        void addIssue(newIssue);
         return { issues: { ...state.issues, [newId]: newIssue } };
     });
 };

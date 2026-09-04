@@ -4,9 +4,16 @@ import { isSortable } from "@dnd-kit/react/sortable";
 import { moveIssue } from "@/store/actions.ts";
 import { Column } from "./Column.tsx";
 import { useRef } from "react";
+import { useInitStatus } from "@/store/hooks.ts";
+import { BoardError, BoardLoading } from "./BoardPlaceholder.tsx";
 
 export function Board() {
     const sourceParentRef = useRef<Element | null>(null);
+    const initStatus = useInitStatus();
+
+    if (initStatus === "loading") return <BoardLoading />;
+    if (initStatus === "error") return <BoardError />;
+
     return (
         <DragDropProvider
             onDragStart={event => {

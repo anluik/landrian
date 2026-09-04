@@ -1,5 +1,6 @@
 import { useShallow } from "zustand/react/shallow";
 import {
+    selectInitStatus,
     selectIssue,
     selectIssueIdsByStatus,
     selectLabels,
@@ -9,6 +10,8 @@ import { useBoardStore } from "./store.ts";
 import type { IssueId, Status } from "@/types/Issue.ts";
 import type { LabelId } from "@/types/Label.ts";
 import type { UserId } from "@/types/User.ts";
+
+export const useInitStatus = () => useBoardStore(selectInitStatus);
 
 export const useIssueIdsByStatus = (status: Status) =>
     useBoardStore(useShallow(selectIssueIdsByStatus(status)));

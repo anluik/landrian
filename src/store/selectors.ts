@@ -3,6 +3,8 @@ import type { IssueId, Status } from "@/types/Issue.ts";
 import type { UserId } from "@/types/User.ts";
 import type { LabelId } from "@/types/Label.ts";
 
+export const selectInitStatus = (state: BoardState) => state.initStatus;
+
 export const selectIssueIdsByStatus =
     (status: Status) =>
     (state: BoardState): IssueId[] =>
