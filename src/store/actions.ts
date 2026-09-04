@@ -48,20 +48,22 @@ export const moveIssue = (
         const beforeId = siblingIds[index - 1];
         const afterId = siblingIds[index];
 
-        const updatedIssue = {
-            ...issue,
+        const changes: Partial<Issue> = {
             status: toStatus,
             orderKey: generateKeyBetween(
                 beforeId ? state.issues[beforeId].orderKey : null,
                 afterId ? state.issues[afterId].orderKey : null
             )
         };
-        void updateIssue(issueId, updatedIssue);
+        updateIssue(issueId, changes);
 
         return {
             issues: {
                 ...state.issues,
-                [issueId]: updatedIssue
+                [issueId]: {
+                    ...issue,
+                    ...changes
+                }
             }
         };
     });

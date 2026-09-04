@@ -11,6 +11,6 @@ export async function addIssue(newIssue: Issue) {
     return issues.add(newIssue);
 }
 
-export async function updateIssue(id: IssueId, data: Issue) {
-    return issues.update(id, { ...data });
+export async function updateIssue(id: IssueId, changes: Partial<Issue>) {
+    return issues.update(id, changes);
 }
