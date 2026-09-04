@@ -3,6 +3,7 @@ import type { Issue, IssueId } from "@/types/issue.ts";
 import type { User, UserId } from "@/types/user.ts";
 import type { Label, LabelId } from "@/types/label.ts";
 import { getIssues } from "@/database/issues.repo.ts";
+import { reportFailure } from "@/lib/notify.ts";
 
 export type InitStatus = "loading" | "ready" | "error";
 
@@ -37,7 +38,8 @@ export const loadIssues = async () => {
             initStatus: "ready",
             issues: Object.fromEntries(issues.map(issue => [issue.id, issue]))
         });
-    } catch {
+    } catch (error) {
         useBoardStore.setState({ initStatus: "error" });
+        reportFailure("Could not load issues", error);
     }
 };

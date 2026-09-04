@@ -1,5 +1,6 @@
 import { Board } from "@/components/board/Board";
 import { Navbar } from "@/components/nav/Navbar";
+import { Toaster } from "@/components/ui/sonner.tsx";
 
 export default function App() {
     return (
@@ -8,6 +9,7 @@ export default function App() {
             <main className="min-h-0 flex-1">
                 <Board />
             </main>
+            <Toaster />
         </div>
     );
 }
