@@ -4,9 +4,11 @@ import {
     selectIssueIdsByStatus,
     selectLabels,
     selectUser
-} from "./selectors";
-import { useBoardStore } from "./store";
-import type { IssueId, LabelId, Status, UserId } from "./types";
+} from "./selectors.ts";
+import { useBoardStore } from "./store.ts";
+import type { IssueId, Status } from "@/types/Issue.ts";
+import type { LabelId } from "@/types/Label.ts";
+import type { UserId } from "@/types/User.ts";
 
 export const useIssueIdsByStatus = (status: Status) =>
     useBoardStore(useShallow(selectIssueIdsByStatus(status)));

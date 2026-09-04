@@ -1,6 +1,6 @@
-import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
-import { SearchBox } from "./SearchBox";
+import { Button } from "@/components/ui/button.tsx";
+import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet.tsx";
+import { SearchBox } from "./SearchBox.tsx";
 
 interface SideMenuProps {
     open: boolean;

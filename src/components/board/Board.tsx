@@ -1,8 +1,8 @@
+import { type IssueId, type Status, STATUSES } from "@/types/Issue.ts";
 import { DragDropProvider } from "@dnd-kit/react";
 import { isSortable } from "@dnd-kit/react/sortable";
-import { moveIssue } from "./actions";
-import { Column } from "./Column";
-import { STATUSES, type IssueId, type Status } from "./types";
+import { moveIssue } from "@/store/actions.ts";
+import { Column } from "./Column.tsx";
 import { useRef } from "react";
 
 export function Board() {

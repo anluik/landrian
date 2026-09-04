@@ -1,6 +1,7 @@
+import type { UserId } from "@/types/User.ts";
+import type { LabelId } from "@/types/Label.ts";
+
 export type IssueId = string;
-export type UserId = string;
-export type LabelId = string;
 
 export type Status = "todo" | "in_progress" | "done";
 
@@ -18,16 +19,4 @@ export interface Issue {
     assigneeId: UserId | null;
     labelIds: LabelId[];
     orderKey: string;
-}
-
-export interface User {
-    id: UserId;
-    name: string;
-    color: string;
-}
-
-export interface Label {
-    id: LabelId;
-    name: string;
-    color: string;
 }

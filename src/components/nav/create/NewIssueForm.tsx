@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button.tsx";
 import { Input } from "@/components/ui/input.tsx";
 import { Textarea } from "@/components/ui/textarea.tsx";
-import { createIssue } from "@/board/actions.ts";
+import { createIssue } from "@/store/actions.ts";
 import type { CreateViewProps } from "./CreateDialog.tsx";
 
 export function NewIssueForm({ onClose }: CreateViewProps) {

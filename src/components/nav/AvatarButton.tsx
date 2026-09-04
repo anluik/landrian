@@ -1,6 +1,6 @@
 import { UserRoundIcon } from "lucide-react";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar.tsx";
+import { Button } from "@/components/ui/button.tsx";
 
 export function AvatarButton() {
     return (

@@ -1,5 +1,5 @@
-import { Board } from "./board/Board";
-import { Navbar } from "./nav/Navbar";
+import { Board } from "@/components/board/Board";
+import { Navbar } from "@/components/nav/Navbar";
 
 export default function App() {
     return (

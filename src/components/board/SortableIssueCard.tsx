@@ -1,6 +1,6 @@
 import { useSortable } from "@dnd-kit/react/sortable";
-import { IssueCard } from "./IssueCard";
-import type { IssueId, Status } from "./types";
+import { IssueCard } from "./IssueCard.tsx";
+import type { IssueId, Status } from "@/types/Issue.ts";
 
 interface SortableIssueCardProps {
     id: IssueId;

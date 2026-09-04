@@ -1,12 +1,12 @@
 import { MenuIcon } from "lucide-react";
 import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
-import { AvatarButton } from "./AvatarButton";
+import { Button } from "@/components/ui/button.tsx";
+import { AvatarButton } from "./AvatarButton.tsx";
 import { CreateDialog } from "./create/CreateDialog.tsx";
-import { Logo } from "./Logo";
-import { ModeToggle } from "./ModeToggle";
-import { SearchBox } from "./SearchBox";
-import { SideMenu } from "./SideMenu";
+import { Logo } from "./Logo.tsx";
+import { ModeToggle } from "./ModeToggle.tsx";
+import { SearchBox } from "./SearchBox.tsx";
+import { SideMenu } from "./SideMenu.tsx";
 
 export function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);

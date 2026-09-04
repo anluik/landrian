@@ -1,9 +1,9 @@
 import type { CSSProperties } from "react";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
-import { useIssue, useLabels, useUser } from "./hooks";
-import type { IssueId, Status } from "./types";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar.tsx";
+import { Badge } from "@/components/ui/badge.tsx";
+import { Card, CardContent } from "@/components/ui/card.tsx";
+import { useIssue, useLabels, useUser } from "@/store/hooks.ts";
+import type { IssueId, Status } from "@/types/Issue.ts";
 
 const statusRail: Record<Status, string> = {
     todo: "border-l-muted-foreground/40",
@@ -26,7 +26,7 @@ export function IssueCard({ id, status }: IssueCardProps) {
             size="sm"
             className={`gap-2.5 rounded-lg border border-l-2 py-2.5 shadow-none ring-0 transition-transform ${statusRail[status]}`}
         >
-            <CardContent className="text-sm/relaxed">{issue.title} ({issue.id}-{issue.orderKey})</CardContent>
+            <CardContent className="text-sm/relaxed">{issue.title} ({issue.orderKey})</CardContent>
 
             {issue.description && (
                 <CardContent>

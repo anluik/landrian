@@ -1,12 +1,7 @@
 import { create } from "zustand";
-import type {
-    Issue,
-    IssueId,
-    Label,
-    LabelId,
-    User,
-    UserId
-} from "./types";
+import type { Issue, IssueId } from "@/types/Issue.ts";
+import type { User, UserId } from "@/types/User.ts";
+import type { Label, LabelId } from "@/types/Label.ts";
 
 export interface BoardState {
     issues: Record<IssueId, Issue>;

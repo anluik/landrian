@@ -1,5 +1,7 @@
-import type { BoardState } from "./store";
-import type { IssueId, LabelId, Status, UserId } from "./types";
+import type { BoardState } from "./store.ts";
+import type { IssueId, Status } from "@/types/Issue.ts";
+import type { UserId } from "@/types/User.ts";
+import type { LabelId } from "@/types/Label.ts";
 
 export const selectIssueIdsByStatus =
     (status: Status) =>
