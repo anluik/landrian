@@ -1,13 +1,17 @@
-import { Board } from "@/components/board/Board";
-import { Navbar } from "@/components/nav/Navbar";
+import { Outlet, createRootRoute } from "@tanstack/react-router";
+import { Navbar } from "@/components/nav/Navbar.tsx";
 import { Toaster } from "@/components/ui/sonner.tsx";
 
-export default function App() {
+export const Route = createRootRoute({
+    component: RootComponent
+});
+
+function RootComponent() {
     return (
         <div className="flex h-dvh flex-col">
             <Navbar />
             <main className="min-h-0 flex-1">
-                <Board />
+                <Outlet />
             </main>
             <Toaster />
         </div>

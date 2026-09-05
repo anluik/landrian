@@ -1,13 +1,18 @@
-import { type IssueId, type Status, STATUSES } from "@/types/issue.ts";
-import { DragDropProvider } from "@dnd-kit/react";
-import { isSortable } from "@dnd-kit/react/sortable";
-import { moveIssue } from "@/store/actions.ts";
-import { Column } from "./Column.tsx";
+import { createFileRoute } from "@tanstack/react-router";
 import { useRef } from "react";
 import { useInitStatus } from "@/store/hooks.ts";
-import { BoardError, BoardLoading } from "./BoardPlaceholder.tsx";
+import { BoardError, BoardLoading } from "@/components/board/BoardPlaceholder.tsx";
+import { DragDropProvider } from "@dnd-kit/react";
+import { type IssueId, type Status, STATUSES } from "@/types/issue.ts";
+import { moveIssue } from "@/store/actions.ts";
+import { isSortable } from "@dnd-kit/react/sortable";
+import { Column } from "@/components/board/Column.tsx";
 
-export function Board() {
+export const Route = createFileRoute("/")({
+    component: RouteComponent
+});
+
+function RouteComponent() {
     const sourceParentRef = useRef<Element | null>(null);
     const initStatus = useInitStatus();
 
