@@ -1,7 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useRef } from "react";
 import { useInitStatus } from "@/store/hooks.ts";
-import { BoardError, BoardLoading } from "@/components/board/BoardPlaceholder.tsx";
+import {
+    BoardError,
+    BoardLoading
+} from "@/components/board/BoardPlaceholder.tsx";
 import { DragDropProvider } from "@dnd-kit/react";
 import { type IssueId, type Status, STATUSES } from "@/types/issue.ts";
 import { moveIssue } from "@/store/actions.ts";

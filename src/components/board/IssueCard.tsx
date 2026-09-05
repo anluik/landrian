@@ -26,7 +26,9 @@ export function IssueCard({ id, status }: IssueCardProps) {
             size="sm"
             className={`gap-2.5 rounded-lg border border-l-2 py-2.5 shadow-none ring-0 transition-transform ${statusRail[status]}`}
         >
-            <CardContent className="text-sm/relaxed">{issue.title} ({issue.orderKey})</CardContent>
+            <CardContent className="text-sm/relaxed">
+                {issue.title} ({issue.orderKey})
+            </CardContent>
 
             {issue.description && (
                 <CardContent>

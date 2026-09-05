@@ -8,11 +8,7 @@ import {
 import { AnimatePresence, MotionConfig, motion } from "motion/react";
 import { ChevronLeftIcon } from "lucide-react";
 import { Button } from "@/components/ui/button.tsx";
-import {
-    Dialog,
-    DialogContent,
-    DialogTitle
-} from "@/components/ui/dialog.tsx";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog.tsx";
 import { CreateMenu } from "./CreateMenu.tsx";
 import { NewIssueForm } from "./NewIssueForm.tsx";
 

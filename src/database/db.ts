@@ -6,7 +6,7 @@ export const db = new Dexie("BoardDB") as Dexie & {
 };
 
 db.version(1).stores({
-    issues: "id, status",
+    issues: "id, status"
 });
 
 db.on("populate", function () {

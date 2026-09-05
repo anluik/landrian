@@ -21,7 +21,7 @@ export function Column({ status, title }: ColumnProps) {
         id: status,
         type: "column",
         accept: "issue",
-        collisionPriority: CollisionPriority.Low,
+        collisionPriority: CollisionPriority.Low
     });
 
     return (

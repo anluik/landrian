@@ -17,7 +17,11 @@ export function BoardError() {
             <p className="font-mono text-xs font-semibold tracking-widest text-destructive uppercase">
                 Could not load issues
             </p>
-            <Button variant="outline" size="sm" onClick={() => void loadIssues()}>
+            <Button
+                variant="outline"
+                size="sm"
+                onClick={() => void loadIssues()}
+            >
                 Retry
             </Button>
         </div>
